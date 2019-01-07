@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+		<title>Sign Up</title>
+		<!-- Font Icon -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Main css -->
+        <link rel="stylesheet" href={% static "css/singup.css" %}>
+        
+</head>
+<body style="background-image:url({% static 'img/bg.png' %})">
+            <!-- Sing in  Form -->
+            <section class="sign-in"><br/>
+                    <div class="container">
+                        <div class="signin-content">
+                            <div class="signin-image">
+                                <figure><img src={% static "img/signin-image.jpg" %} alt="sing up image"></figure>
+                                <a href="../signup" class="signup-image-link">Create an account</a>
+                            </div>
+        
+                            <div class="signin-form">
+                                <h2 class="form-title">Login</h2>
+                                <form method="POST" class="register-form" id="login-form" action="/log_in">
+                                    <div class="form-group">
+                                        <label for="your_name"><i class="fa fa-user"></i></label>
+                                        <input minlength="4" required type="text" name="uname" id="your_name" placeholder="User Name"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="your_pass"><i class="fa fa-lock"></i></label>
+                                        <input minlength="8" required type="password" name="pwd" id="your_pass" placeholder="Password"/>
+                                    </div>
+                                    <p style="color:red;padding-bottom: 10px;font-family:monospace;" >{{ error }}</p>
+                                    <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="6LeyP4cUAAAAADVccDSu8QwaXLsoGWHnuLiSwtJu"></div>
+                                </div>
+                                    {% csrf_token %} 
+                                    <div class="form-group form-button">
+                                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+
+
+</body>
